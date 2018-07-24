@@ -10,7 +10,6 @@ import (
 	"github.com/guobin8205/api_demo/utils/helper/convert"
 	"github.com/gin-gonic/gin"
 	"github.com/tidwall/gjson"
-	"github.com/guobin8205/api_demo/utils/helper/crypto"
 	"log"
 	"strings"
 )
@@ -46,11 +45,13 @@ func ParseRequest() gin.HandlerFunc {
 			req.b = string(body)
 			c.Set("req", req)
 		}else{
-			dst := make([]byte, len(body))
-			dst,_ = crypto.NewAesCrypto().Decrypt(body)
-			req.b = string(dst)
-			log.Println(string(dst))
-			//log.Println("======================")
+			//dst := make([]byte, len(body))
+			//dst,_ = crypto.NewAesCrypto().Decrypt(body)
+			//req.b = string(dst)
+			//log.Println(string(dst))
+			////log.Println("======================")
+			//c.Set("req", req)
+			req.b = string(body)
 			c.Set("req", req)
 		}
 

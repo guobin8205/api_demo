@@ -12,9 +12,6 @@ import (
 	"log"
 	"net/rpc"
 	crpc "github.com/guobin8205/api_demo/utils/rpc"
-	"github.com/guobin8205/api_demo/models/db/kafka"
-	"strings"
-
 )
 
 var (
@@ -32,11 +29,11 @@ type NoReply struct {
 
 func init() {
 	//初始化kafka
-	kafka_addr := strings.Split(conf.String("kafka.addrs"), ",")
-	err := kafka.InitKafka(kafka_addr)
-	if err != nil {
-		panic(err)
-	}
+	//kafka_addr := strings.Split(conf.String("kafka.addrs"), ",")
+	//err := kafka.InitKafka(kafka_addr)
+	//if err != nil {
+	//	panic(err)
+	//}
 	//初始化redis连接池
 	redisPool = rds.NewRdsPool(
 		conf.String("redis.host"),
@@ -61,10 +58,10 @@ func init() {
 	//登录异步处理goroutine
 	go UserLoginList() //登录异步处理
 	//初始化RPC
-	err = InitRPC()
-	if err != nil {
-		panic("rpc connect error!")
-	}
+	//err = InitRPC()
+	//if err != nil {
+	//	panic("rpc connect error!")
+	//}
 }
 
 func InitRPC() error {

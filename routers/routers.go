@@ -10,6 +10,6 @@ import (
 )
 
 func SetRouters(e *gin.Engine) {
-	e.POST("/user/login",controllers.Login)			//用户登录
-	e.POST("/user/push",controllers.UserPush)			//直播弹幕
+	e.GET("/user/login",controllers.Login)			//用户登录
+	e.GET("/user/push",controllers.UserPush)			//直播弹幕
 }

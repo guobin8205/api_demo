@@ -2,7 +2,6 @@ package conf
 
 import (
 	"path/filepath"
-
 	"fmt"
 
 	"github.com/go-ini/ini"
